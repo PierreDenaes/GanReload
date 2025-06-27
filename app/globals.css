@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* GAN Brand Colors */
+    --gan-blue: #002c5f;
+    --gan-yellow: #ffd200;
+    --gan-gray: #f8fafc;
+    --gan-text: #1e293b;
+    
+    /* Shadcn Theme Colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 210 100% 18%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 210 100% 18%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 210 100% 18%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #002c5f;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #001a3d;
+  }
+}
+
+@layer components {
+  /* GAN Brand Button Styles */
+  .btn-gan-primary {
+    @apply bg-gan-blue-500 hover:bg-gan-blue-600 text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-gan-secondary {
+    @apply bg-gan-yellow-400 hover:bg-gan-yellow-500 text-gan-blue-500 font-medium px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-gan-outline {
+    @apply border-2 border-gan-blue-500 text-gan-blue-500 hover:bg-gan-blue-500 hover:text-white font-medium px-6 py-3 rounded-lg transition-all duration-200;
+  }
+  
+  /* Section Styles */
+  .section-padding {
+    @apply py-16 px-4 md:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  /* Card Hover Effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  }
+  
+  /* Text Styles */
+  .text-gan-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gan-blue-500 leading-tight;
+  }
+  
+  .text-gan-subtitle {
+    @apply text-lg md:text-xl text-slate-700 font-medium;
+  }
+  
+  .text-gan-body {
+    @apply text-base text-slate-700 leading-relaxed;
+  }
+}
+
+/* Scroll-triggered animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-on-scroll.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-on-scroll.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-on-scroll.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced mobile responsive */
+@media (max-width: 640px) {
+  .section-padding {
+    @apply py-12 px-4;
+  }
+  
+  .text-gan-title {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .container-max {
+    @apply px-4;
+  }
+}
+
+/* Enhanced card hover effects for videos */
+.video-card-hover {
+  @apply transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:scale-105;
+}
+
+.play-button-hover {
+  @apply transition-all duration-300 hover:scale-125 hover:bg-gan-yellow-400;
+}
+
+/* Hide Next.js badge and error messages */
+body > nextjs-portal {
+  display: none;
+}
